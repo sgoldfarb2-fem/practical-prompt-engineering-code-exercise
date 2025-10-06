@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Prompt Library</title>
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <header class="app-header">
+    <h1>🧪 Prompt Library</h1>
+    <p class="tagline">Store, preview & iterate on your AI prompts locally</p>
+  </header>
+
+  <main class="layout">
+    <section class="form-panel" aria-labelledby="form-title">
+      <h2 id="form-title">Add a Prompt</h2>
+      <form id="prompt-form" autocomplete="off">
+        <div class="field-group">
+          <label for="prompt-title">Title <span class="required">*</span></label>
+          <input id="prompt-title" name="title" type="text" maxlength="120" placeholder="e.g. Blog Outline Generator" required />
+        </div>
+        <div class="field-group">
+          <label for="prompt-model">Model <span class="required">*</span></label>
+          <input id="prompt-model" name="model" type="text" maxlength="100" placeholder="e.g. gpt-4o-mini" required />
+        </div>
+        <div class="field-group">
+          <label for="prompt-content">Prompt Content <span class="required">*</span></label>
+          <textarea id="prompt-content" name="content" rows="7" placeholder="Write the full prompt here..." required></textarea>
+        </div>
+        <div class="actions">
+          <button type="submit" class="btn primary" id="save-btn">Save Prompt</button>
+          <button type="reset" class="btn subtle" id="reset-btn" title="Clear form">Clear</button>
+        </div>
+      </form>
+    </section>
+
+    <section class="list-panel" aria-labelledby="library-title">
+      <div class="list-header">
+        <h2 id="library-title">Saved Prompts</h2>
+        <div class="controls">
+          <button type="button" class="btn small" id="export-btn" title="Export all prompts to JSON">Export</button>
+          <button type="button" class="btn small" id="import-btn" title="Import prompts from JSON">Import</button>
+          <input type="file" id="import-file" accept="application/json" hidden />
+        </div>
+      </div>
+      <div id="empty-state" class="empty" hidden>
+        <p>No prompts saved yet. Add your first prompt on the left.</p>
+      </div>
+      <div id="prompts" class="prompt-grid" aria-live="polite"></div>
+    </section>
+  </main>
+
+  <template id="prompt-card-template">
+    <article class="prompt-card" data-id="">
+      <header class="card-head">
+        <h3 class="prompt-title"></h3>
+        <menu class="card-actions" type="toolbar">
+          <button class="icon-btn copy-btn" title="Copy full prompt" aria-label="Copy full prompt">📋</button>
+          <button class="icon-btn delete-btn" title="Delete prompt" aria-label="Delete prompt">🗑️</button>
+        </menu>
+      </header>
+      <p class="prompt-preview"></p>
+      <div class="notes" data-notes-section>
+        <div class="notes-head">
+          <h4 class="notes-title">Notes</h4>
+          <button type="button" class="add-note-btn" data-action="add-note" aria-label="Add note">＋</button>
+        </div>
+        <ul class="notes-list" role="list"></ul>
+      </div>
+    </article>
+  </template>
+
+  <footer class="app-footer">
+    <p>Local only. Data stored in your browser (localStorage). ✨</p>
+  </footer>
+
+  <script src="app.js" defer></script>
+</body>
+</html>
