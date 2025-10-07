@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Prompt Library</title>
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <header class="app-header">
+    <h1>Prompt Library</h1>
+  </header>
+
+  <main class="layout">
+    <section class="panel" aria-labelledby="form-heading">
+      <h2 id="form-heading" class="panel-title">Add Prompt</h2>
+      <form id="prompt-form" novalidate>
+        <div class="field-group">
+          <label for="prompt-title">Title</label>
+          <input type="text" id="prompt-title" name="title" placeholder="e.g. Blog Idea Generator" maxlength="120" required />
+          <p class="field-hint" id="title-hint">Required. Max 120 characters.</p>
+        </div>
+        <div class="field-group">
+          <label for="prompt-content">Content</label>
+          <textarea id="prompt-content" name="content" placeholder="Enter the full prompt here..." rows="6" required></textarea>
+          <p class="field-hint" id="content-hint">Required.</p>
+        </div>
+        <div class="actions">
+          <button type="submit" id="save-btn">Save Prompt</button>
+        </div>
+        <div id="form-error" class="form-error" role="alert" aria-live="polite"></div>
+      </form>
+    </section>
+
+    <section class="panel" aria-labelledby="saved-prompts-heading">
+      <div class="panel-header">
+        <h2 id="saved-prompts-heading" class="panel-title">Saved Prompts</h2>
+        <span id="prompt-count" class="count-badge" aria-live="polite"></span>
+      </div>
+      <div id="prompts-empty" class="empty-state" hidden>
+        <p>No prompts saved yet. Add your first one!</p>
+      </div>
+      <div id="prompts-list" class="cards" aria-live="polite"></div>
+    </section>
+  </main>
+
+  <template id="prompt-card-template">
+    <article class="card" data-id="">
+      <div class="card-main">
+        <h3 class="card-title"></h3>
+        <p class="card-preview"></p>
+      </div>
+      <div class="card-actions">
+        <button class="delete-btn" type="button" aria-label="Delete prompt">Delete</button>
+      </div>
+    </article>
+  </template>
+
+  <footer class="app-footer">Local-only storage. Clearing browser data will remove prompts.</footer>
+
+  <script src="script.js"></script>
+</body>
+</html>
