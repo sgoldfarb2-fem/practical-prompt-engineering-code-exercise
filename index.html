@@ -21,6 +21,11 @@
           <p class="field-hint" id="title-hint">Required. Max 120 characters.</p>
         </div>
         <div class="field-group">
+          <label for="model-name">Model</label>
+          <input type="text" id="model-name" name="model" placeholder="e.g. gpt-4o-mini" maxlength="100" required />
+          <p class="field-hint" id="model-hint">Required. Model identifier (max 100 chars).</p>
+        </div>
+        <div class="field-group">
           <label for="prompt-content">Content</label>
           <textarea id="prompt-content" name="content" placeholder="Enter the full prompt here..." rows="6" required></textarea>
           <p class="field-hint" id="content-hint">Required.</p>
@@ -49,6 +54,7 @@
       <div class="card-main">
         <h3 class="card-title"></h3>
         <p class="card-preview"></p>
+        <div class="prompt-meta" data-role="metadata"></div>
       </div>
       <div class="card-actions">
         <button class="delete-btn" type="button" aria-label="Delete prompt">Delete</button>
