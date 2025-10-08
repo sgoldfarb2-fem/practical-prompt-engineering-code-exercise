@@ -41,6 +41,14 @@ h1, h2, h3 { line-height: 1.2; font-weight: 600; }
   z-index: 10;
 }
 .app-header h1 { margin: 0; font-size: 1.5rem; letter-spacing: .5px; }
+.header-tools { display: flex; gap: .5rem; margin-left: auto; }
+.tool-btn { font: 600 .65rem system-ui; letter-spacing: .5px; padding: .45rem .75rem; border-radius: var(--radius-s); border: 1px solid var(--border-strong); background: #ffffff; cursor: pointer; text-transform: uppercase; color: var(--brand-accent); transition: background .15s, color .15s, border-color .15s, box-shadow .15s; box-shadow: var(--shadow-sm); }
+.tool-btn:hover { background: #eef5ff; }
+.tool-btn:active { background: #dbeafe; }
+.tool-btn:focus-visible { outline: 2px solid var(--focus); outline-offset: 2px; }
+.iemessages { margin: .5rem 0 .75rem; font-size: .6rem; padding: .5rem .6rem; border: 1px solid var(--border-strong); border-radius: var(--radius-s); background: #f1f5f9; color: var(--text-soft); box-shadow: var(--shadow-sm); }
+.iemessages.error { background: #fef2f2; border-color: var(--danger); color: var(--danger-accent); }
+.iemessages.success { background: #ecfdf5; border-color: #34d399; color: #047857; }
 
 .layout {
   display: grid;
